@@ -37,8 +37,8 @@ jobs:
     secrets: inherit
     with:
       assignment: 'buttonoverflow'
-      functionality: ${{ inputs.functionality || 'false' }}
-      load: ${{ inputs.load || 'false' }}
+      functionality: ${{ inputs.functionality || false }}
+      load: ${{ inputs.load || false }}
       aws-access-key-id: ${{ inputs.aws-access-key-id || '' }}
       aws-secret-access-key: ${{ inputs.aws-secret-access-key || '' }}
       aws-session-token: ${{ inputs.aws-session-token || '' }}
