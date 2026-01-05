@@ -28,13 +28,17 @@ on:
         type: string
 
 jobs:
-  cloud:
+  lint:
+    uses: csse6400/workflows/.github/workflows/lint.yml@main
+    secrets: inherit
+
+  deploy:
     uses: csse6400/workflows/.github/workflows/cloud.yml@main
     secrets: inherit
     with:
       assignment: 'buttonoverflow'
-      functionality: ${{ inputs.functionality }}
-      load: ${{ inputs.load }}
-      aws-access-key-id: ${{ inputs.aws-access-key-id }}
-      aws-secret-access-key: ${{ inputs.aws-secret-access-key }}
-      aws-session-token: ${{ inputs.aws-session-token }}
+      functionality: ${{ inputs.functionality || 'false' }}
+      load: ${{ inputs.load || 'false' }}
+      aws-access-key-id: ${{ inputs.aws-access-key-id || '' }}
+      aws-secret-access-key: ${{ inputs.aws-secret-access-key || '' }}
+      aws-session-token: ${{ inputs.aws-session-token || '' }}
