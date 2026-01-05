@@ -1,0 +1,10 @@
+name: Lint
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  lint:
+    uses: csse6400/workflows/.github/workflows/lint.yml@main
+    secrets: inherit

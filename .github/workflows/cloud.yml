@@ -3,10 +3,38 @@ name: Cloud Assignment
 on:
   push:
   workflow_dispatch:
+    inputs:
+      functionality:
+        description: 'Run functionality tests'
+        required: false
+        type: boolean
+        default: false
+      load:
+        description: 'Run sample load tests against the deployment (Only for Stage 3)'
+        required: false
+        type: boolean
+        default: false
+      aws-access-key-id:
+        description: 'AWS Access Key ID for your lab account'
+        required: false
+        type: string
+      aws-secret-access-key:
+        description: 'AWS Secret Access Key for your lab account'
+        required: false
+        type: string
+      aws-session-token:
+        description: 'AWS Session Token for your lab account'
+        required: false
+        type: string
 
 jobs:
-  build:
+  cloud:
     uses: csse6400/workflows/.github/workflows/cloud.yml@main
     secrets: inherit
     with:
       assignment: 'buttonoverflow'
+      functionality: ${{ inputs.functionality }}
+      load: ${{ inputs.load }}
+      aws-access-key-id: ${{ inputs.aws-access-key-id }}
+      aws-secret-access-key: ${{ inputs.aws-secret-access-key }}
+      aws-session-token: ${{ inputs.aws-session-token }}
