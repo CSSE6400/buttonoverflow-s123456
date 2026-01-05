@@ -45,7 +45,7 @@ jobs:
     secrets: inherit
     with:
       assignment: 'buttonoverflow'
-      deploy: ${{ inputs.deploy || true }}
+      deploy: ${{ inputs.deploy || false }}
       deployed-url: ${{ inputs.deployed-url || '' }}
       functionality: ${{ inputs.functionality || false }}
       load: ${{ inputs.load || false }}
