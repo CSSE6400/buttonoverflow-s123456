@@ -5,21 +5,21 @@ on:
   workflow_dispatch:
     inputs:
       deploy:
-        description: 'Do you want us to deploy your terraform?'
+        description: 'Deploy: Do you want us to deploy your terraform?'
         required: true
         type: boolean
         default: true
       deployed-url:
-        description: 'URL of the deployed instance e.g. https://cloud.csse6400.uqcloud.net, if you do not want us to deploy'
+        description: 'Deploy[Optional]: URL of the deployed instance'
         required: false
         type: string
       functionality:
-        description: 'Test functionality (Stage 1/2/3)'
+        description: 'Test: functionality (Stage 1/2/3)'
         required: false
         type: boolean
         default: false
       load:
-        description: 'Test load (Stage 3)'
+        description: 'Test: load (Stage 3)'
         required: false
         type: boolean
         default: false
