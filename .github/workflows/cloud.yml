@@ -5,25 +5,25 @@ on:
   workflow_dispatch:
     inputs:
       functionality:
-        description: 'Run functionality tests'
+        description: 'Run functionality'
         required: false
         type: boolean
         default: false
       load:
-        description: 'Run sample load tests against the deployment (Only for Stage 3)'
+        description: 'Run load'
         required: false
         type: boolean
         default: false
       aws-access-key-id:
-        description: 'AWS Access Key ID for your lab account'
+        description: 'AWS Access Key ID'
         required: false
         type: string
       aws-secret-access-key:
-        description: 'AWS Secret Access Key for your lab account'
+        description: 'AWS Secret Access Key'
         required: false
         type: string
       aws-session-token:
-        description: 'AWS Session Token for your lab account'
+        description: 'AWS Session Token'
         required: false
         type: string
 
