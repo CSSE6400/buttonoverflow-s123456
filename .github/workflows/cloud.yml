@@ -1,0 +1,12 @@
+name: Cloud Assignment
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    uses: csse6400/workflows/.github/workflows/cloud.yml@main
+    secrets: inherit
+    with:
+      assignment: 'buttonoverflow'
