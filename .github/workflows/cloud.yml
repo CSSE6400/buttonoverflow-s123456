@@ -9,30 +9,30 @@ on:
         required: true
         type: boolean
         default: true
-      deployed:
-        description: 'URL of the deployed instance e.g. https://cloud.csse6400.uqcloud.net, only used if you do not want us to deploy for you.'
+      deployed-url:
+        description: 'URL of the deployed instance e.g. https://cloud.csse6400.uqcloud.net, if you do not want us to deploy'
         required: false
         type: string
       functionality:
-        description: 'Run the functionality tests (Stage 1/2/3)'
+        description: 'Test functionality (Stage 1/2/3)'
         required: false
         type: boolean
         default: false
       load:
-        description: 'Run the load test (Stage 3)'
+        description: 'Test load (Stage 3)'
         required: false
         type: boolean
         default: false
       aws-access-key-id:
-        description: 'AWS Access Key ID for your lab account'
+        description: 'Lab: AWS Access Key ID'
         required: false
         type: string
       aws-secret-access-key:
-        description: 'AWS Secret Access Key for your lab account'
+        description: 'Lab: AWS Secret Access Key'
         required: false
         type: string
       aws-session-token:
-        description: 'AWS Session Token for your lab account'
+        description: 'Lab: AWS Session Token'
         required: false
         type: string
 
@@ -46,6 +46,8 @@ jobs:
     secrets: inherit
     with:
       assignment: 'buttonoverflow'
+      deploy: ${{ inputs.deploy || true }}
+      deployed-url: ${{ inputs.deployed-url || '' }}
       functionality: ${{ inputs.functionality || false }}
       load: ${{ inputs.load || false }}
       aws-access-key-id: ${{ inputs.aws-access-key-id || '' }}
