@@ -4,26 +4,35 @@ on:
   push:
   workflow_dispatch:
     inputs:
+      deploy:
+        description: 'Do you want us to deploy your terraform?'
+        required: true
+        type: boolean
+        default: true
+      deployed:
+        description: 'URL of the deployed instance e.g. https://cloud.csse6400.uqcloud.net, only used if you do not want us to deploy for you.'
+        required: false
+        type: string
       functionality:
-        description: 'Run functionality'
+        description: 'Run the functionality tests (Stage 1/2/3)'
         required: false
         type: boolean
         default: false
       load:
-        description: 'Run load'
+        description: 'Run the load test (Stage 3)'
         required: false
         type: boolean
         default: false
       aws-access-key-id:
-        description: 'AWS Access Key ID'
+        description: 'AWS Access Key ID for your lab account'
         required: false
         type: string
       aws-secret-access-key:
-        description: 'AWS Secret Access Key'
+        description: 'AWS Secret Access Key for your lab account'
         required: false
         type: string
       aws-session-token:
-        description: 'AWS Session Token'
+        description: 'AWS Session Token for your lab account'
         required: false
         type: string
 
